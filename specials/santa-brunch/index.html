@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Santa Brunch · Yummy Tummy</title>
+<meta name="description" content="Brunch and photos with Santa at Yummy Tummy Bakery Humble. Sunday, December 6.">
+<meta property="og:title" content="Santa Brunch · Yummy Tummy Bakery">
+<meta property="og:description" content="Brunch and photos with Santa · Sunday, December 6 · Humble, TX.">
+<meta name="theme-color" content="#F1DBDD">
+<link rel="icon" href="../../img/icon-192.png">
+<style>
+@font-face{font-family:IS;src:url(../thanksgiving/fonts/InstrumentSerif-Italic.ttf);font-display:swap}
+@font-face{font-family:ISR;src:url(../thanksgiving/fonts/InstrumentSerif-Regular.ttf);font-display:swap}
+:root{--bg:#F1DBDD;--bg2:#F7E8E9;--card:#FFFFFF;--rose:#1A1A1A;--pink:#C26878;--ink:#1A1A1A;--mute:#6B6B6B;--line:#E4BEC1;--sel:#F8ECED}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html{background:var(--bg)}
+body{font-family:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink);background:radial-gradient(130% 60% at 50% 0%,var(--bg2) 0%,var(--bg) 60%);min-height:100vh;padding-bottom:120px}
+.wrap{max-width:560px;margin:0 auto;padding:22px 18px 0}
+.top{display:flex;justify-content:space-between;align-items:center}
+.logo{width:150px}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--card)}
+.lang button{border:0;background:none;font:600 12px/1 inherit;font-family:inherit;letter-spacing:.12em;color:var(--mute);padding:8px 12px;cursor:pointer}
+.lang button.on{background:var(--rose);color:#fff}
+h1{font-family:IS;font-weight:400;color:var(--rose);font-size:58px;line-height:.9;text-align:center;margin:30px 0 12px;-webkit-text-stroke:1.2px var(--rose);letter-spacing:-.5px}
+.lead{text-align:center;font-size:15px;line-height:1.55;max-width:400px;margin:0 auto}
+.dots{display:flex;justify-content:center;gap:9px;margin:20px 0 6px}.dots i{width:7px;height:7px;border-radius:50%;background:var(--rose)}
+.facts{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.facts span{font-size:12px;letter-spacing:.06em;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 12px}
+.step{margin-top:30px}
+.step h2{font-family:IS;font-weight:400;font-size:30px;color:var(--rose);display:flex;align-items:baseline;gap:10px;margin-bottom:12px}
+.step h2 b{font-family:-apple-system,"Helvetica Neue",Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.16em;color:#fff;background:var(--rose);border-radius:999px;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;transform:translateY(-4px)}
+.list{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.item{display:flex;align-items:center;justify-content:space-between;padding:12px 14px 12px 18px;border-top:1px solid var(--line)}
+.item:first-child{border-top:0}
+.grp{font-family:IS;font-size:24px;color:var(--rose);padding:16px 18px 8px;border-top:1px solid var(--line);background:var(--bg2)}
+.item .n{font-family:ISR;font-size:23px;line-height:1.15}
+.item .p{font-size:12.5px;color:var(--mute);margin-top:2px}
+.item.sel{background:var(--sel)}
+.stp{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.stp button{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--rose);background:#fff;color:var(--rose);font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.stp button.plus{background:var(--rose);color:#fff}
+.stp button:disabled{opacity:.3}
+.stp output{min-width:26px;text-align:center;font-weight:700;font-size:17px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{border:1.5px solid var(--line);background:var(--card);border-radius:16px;padding:16px 12px;text-align:center;cursor:pointer;font-family:inherit;color:var(--ink)}
+.opt .big{font-family:ISR;font-size:25px;display:block;line-height:1.1}
+.opt .sm{font-size:12px;color:var(--mute);letter-spacing:.06em;display:block;margin-top:4px}
+.opt.on{border-color:var(--rose);background:var(--rose);color:#fff}.opt.on .sm{color:#E4BEC1}
+.note{font-size:13px;color:var(--mute);margin-top:10px;text-align:center}
+.f{display:block;margin-bottom:12px}
+.f span{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 6px 4px;font-weight:600}
+.f input[type=date]{min-height:52px;-webkit-appearance:none;appearance:none}
+.f input,.f textarea{width:100%;border:1.5px solid var(--line);background:var(--card);border-radius:14px;padding:14px 15px;font-size:16px;font-family:inherit;color:var(--ink);outline:none}
+.f input:focus,.f textarea:focus{border-color:var(--rose)}
+.f textarea{min-height:70px;resize:vertical}
+.hp{position:absolute;left:-9999px}
+.sum{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px;margin-top:26px;font-size:14.5px;line-height:1.6}
+.sum .row{display:flex;justify-content:space-between;gap:10px}
+.sum .tot{border-top:1px solid var(--line);margin-top:8px;padding-top:8px;font-weight:700}
+.sum .ty{margin-top:14px;text-align:center;font-family:IS;font-size:22px;line-height:1.1}
+.sum .disc{margin-top:12px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--bg2);text-align:center;font-weight:700;font-size:14px}
+.opt.fixed{cursor:default;width:100%}
+.sum .pay{margin-top:10px;font-size:13px;color:var(--mute)}
+.bar{position:fixed;left:0;right:0;bottom:0;padding:12px 18px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(to top,var(--bg) 70%,rgba(241,219,221,0));z-index:5}
+.bar button{display:block;width:100%;max-width:524px;margin:0 auto;border:0;border-radius:999px;background:var(--rose);color:#fff;font:700 15px/1 inherit;font-family:inherit;letter-spacing:.18em;text-transform:uppercase;padding:19px;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.bar button:disabled{opacity:.45;box-shadow:none}
+.err{color:#B4443F;font-size:13.5px;text-align:center;margin-top:12px;min-height:18px}
+.done{display:none;text-align:center;padding-top:30px}
+.done .num{display:inline-block;font-size:13px;letter-spacing:.2em;font-weight:700;background:var(--rose);color:#fff;border-radius:999px;padding:10px 18px;margin:18px 0}
+.done p{font-size:15.5px;line-height:1.6;max-width:420px;margin:0 auto 12px}
+.closed{display:none;text-align:center;padding:40px 0}
+footer{text-align:center;font-size:12px;color:var(--mute);margin:40px 0 0;letter-spacing:.06em}
+
+h1.t{color:var(--pink);-webkit-text-stroke:1.6px var(--pink);font-size:64px}
+.step h2{color:var(--ink)}
+.item .n{font-size:25px}
+.event{background:var(--card);border:1.5px solid var(--ink);border-radius:18px;padding:18px;text-align:center}
+.event .big{font-family:ISR;font-size:28px;line-height:1.1;display:block}
+.event .sm{font-size:13px;color:var(--mute);letter-spacing:.06em;display:block;margin-top:6px}
+.inc{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:12px}
+.inc span{font-size:12.5px;background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:6px 11px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <img class="logo" src="../../img/logo.png" alt="Yummy Tummy Bakery">
+    <div class="lang"><button data-l="en" class="on">EN</button><button data-l="es">ES</button></div>
+  </div>
+
+  <h1 class="t">Santa Brunch</h1>
+  <p class="lead" data-t="lead"></p>
+  <div class="facts"><span data-t="f1"></span><span data-t="f2"></span></div>
+
+  <div id="closed" class="closed"><p class="lead" data-t="closed"></p></div>
+
+  <form id="form" novalidate>
+    <section class="step">
+      <h2><b>1</b><span data-t="s1"></span></h2>
+      <div class="list" id="list"></div>
+    </section>
+
+    <section class="step">
+      <h2><b>2</b><span data-t="s2"></span></h2>
+      <div class="event"><span class="big" data-t="when"></span><span class="sm" data-t="where"></span>
+        <div class="inc"><span data-t="i1"></span><span data-t="i2"></span></div></div>
+    </section>
+
+    <section class="step">
+      <h2><b>3</b><span data-t="s3"></span></h2>
+      <label class="f"><span data-t="name"></span><input id="name" autocomplete="name" required></label>
+      <label class="f"><span data-t="email"></span><input id="email" type="email" autocomplete="email" inputmode="email" required></label>
+      <label class="f"><span data-t="phone"></span><input id="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
+      <label class="f"><span data-t="notes"></span><textarea id="notes"></textarea></label>
+      <input class="hp" id="website" tabindex="-1" autocomplete="off">
+    </section>
+
+    <div class="sum" id="sum"></div>
+    <p class="err" id="err"></p>
+  </form>
+
+  <div class="done" id="done">
+    <h1 class="t" data-t="thanks"></h1>
+    <div class="num" id="num"></div>
+    <p id="doneMsg"></p>
+    <p data-t="disc"></p>
+    <p data-t="ty" style="font-family:IS;font-size:28px;margin-top:22px"></p>
+  </div>
+
+  <footer><a href="../" style="color:inherit;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none">← Specials</a><br><br>Yummy Tummy Bakery · Humble · New Caney</footer>
+</div>
+
+<div class="bar" id="bar"><button id="send" type="button"></button></div>
+
+<script>
+/* ===== Configuración ===== */
+const API_URL = '';                                   // URL del Apps Script del Santa Brunch. Vacío = modo prueba.
+const EVENT_DAY = '2026-12-06';                       // domingo 6 de diciembre
+const STORE = 'Humble';
+const DEADLINE = '2026-12-04T23:59:59-06:00';         // último momento para reservar (por confirmar)
+const TICKETS = [
+  {id:'adult', key:'Adult', en:'Adult',  es:'Adulto', price:40.00},
+  {id:'kid',   key:'Kid',   en:'Kid',    es:'Niño',   price:30.00}
+];
+/* ========================== */
+const T={
+ en:{lead:'Brunch and photos with Santa at Yummy Tummy. Reserve your table for the family.',
+  f1:'Sunday · December 6',f2:'Humble only',
+  s1:'How many guests?',s2:'Date & location',s3:'Your information',
+  when:'Sunday, December 6',where:'Yummy Tummy · Humble',i1:'🎅 Photos with Santa',i2:'🥞 Brunch',
+  name:'Full name',email:'Email',phone:'Phone',notes:'Notes (optional): allergies, kids names, special requests',
+  summary:'Your reservation',none:'Add at least one guest to start.',est:'Estimated total',
+  disc:'Within 48 hours you will receive an online payment link to confirm your reservation, quick and secure. Your table is guaranteed once the payment is complete.',
+  ty:'Thank you for choosing us!',
+  send:'Reserve',sending:'Sending…',guest:'guest',guests:'guests',
+  e_items:'Add at least one guest.',e_name:'Write your name.',e_email:'Check your email address.',e_phone:'Check your phone number.',e_net:'We could not send your reservation. Please try again, or call the Humble store.',
+  thanks:'Thank you!',
+  doneMsg:(n,a,k)=>`${n}, we received your reservation for the Santa Brunch on Sunday, December 6 at Yummy Tummy Humble (${a} adult${a==1?'':'s'}, ${k} kid${k==1?'':'s'}).`,
+  closed:'Santa Brunch reservations are closed. Follow us on Instagram for our next event!'},
+ es:{lead:'Brunch y fotos con Santa en Yummy Tummy. Reserve la mesa para toda la familia.',
+  f1:'Domingo · 6 de diciembre',f2:'Solo en Humble',
+  s1:'¿Cuántas personas?',s2:'Fecha y lugar',s3:'Sus datos',
+  when:'Domingo 6 de diciembre',where:'Yummy Tummy · Humble',i1:'🎅 Fotos con Santa',i2:'🥞 Brunch',
+  name:'Nombre completo',email:'Email',phone:'Teléfono',notes:'Notas (opcional): alergias, nombre de los niños, peticiones especiales',
+  summary:'Su reservación',none:'Agregue al menos una persona para empezar.',est:'Total estimado',
+  disc:'En un término no mayor a 48 horas recibirá el link de pago en línea para hacer efectiva su reserva, de forma rápida y segura. Su mesa queda asegurada una vez realizado el pago.',
+  ty:'¡Gracias por preferirnos!',
+  send:'Reservar',sending:'Enviando…',guest:'persona',guests:'personas',
+  e_items:'Agregue al menos una persona.',e_name:'Escriba su nombre.',e_email:'Revise su email.',e_phone:'Revise su teléfono.',e_net:'No pudimos enviar su reservación. Intente de nuevo o llame a la sucursal de Humble.',
+  thanks:'¡Gracias!',
+  doneMsg:(n,a,k)=>`${n}, recibimos su reservación para el Santa Brunch del domingo 6 de diciembre en Yummy Tummy Humble (${a} adulto${a==1?'':'s'}, ${k} niño${k==1?'':'s'}).`,
+  closed:'Las reservaciones del Santa Brunch ya cerraron. ¡Síganos en Instagram para nuestro próximo evento!'}
+};
+let L=(()=>{try{return localStorage.getItem('ytb-lang')||((navigator.language||'').startsWith('es')?'es':'en')}catch(e){return 'en'}})();
+const qty={};TICKETS.forEach(p=>qty[p.id]=0);
+const $=id=>document.getElementById(id);
+const money=n=>'$'+n.toFixed(2);
+function render(){
+  const t=T[L];document.documentElement.lang=L;
+  document.querySelectorAll('[data-t]').forEach(e=>{const v=t[e.dataset.t];if(typeof v==='string')e.textContent=v});
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===L));
+  $('list').innerHTML=TICKETS.map(p=>`<div class="item${qty[p.id]?' sel':''}"><div><div class="n">${p[L]}</div><div class="p">${money(p.price)}</div></div>
+   <div class="stp"><button type="button" data-m="${p.id}" aria-label="-" ${qty[p.id]?'':'disabled'}>−</button><output>${qty[p.id]}</output><button type="button" class="plus" data-p="${p.id}" aria-label="+">+</button></div></div>`).join('');
+  const sel=TICKETS.filter(p=>qty[p.id]);
+  let h=`<div style="font-weight:700;margin-bottom:6px">${t.summary}</div>`;
+  if(!sel.length)h+=`<div style="color:var(--mute)">${t.none}</div>`;
+  else{sel.forEach(p=>h+=`<div class="row"><span>${qty[p.id]} × ${p[L]}</span><span>${money(p.price*qty[p.id])}</span></div>`);
+    h+=`<div class="row tot"><span>${t.est}</span><span>${money(sel.reduce((a,p)=>a+p.price*qty[p.id],0))}</span></div>`}
+  h+=`<div class="disc">${t.disc}</div><div class="ty">${t.ty}</div>`;
+  $('sum').innerHTML=h;
+  const n=sel.reduce((a,p)=>a+qty[p.id],0);
+  $('send').textContent=n?`${t.send} · ${n} ${n>1?t.guests:t.guest}`:t.send;
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.l){L=b.dataset.l;try{localStorage.setItem('ytb-lang',L)}catch(x){}render();return}
+  if(b.dataset.p){qty[b.dataset.p]=Math.min(20,qty[b.dataset.p]+1);render()}
+  if(b.dataset.m){qty[b.dataset.m]=Math.max(0,qty[b.dataset.m]-1);render()}
+});
+async function send(){
+  const t=T[L],err=$('err');err.textContent='';
+  const bad=m=>{err.textContent=m;err.scrollIntoView({behavior:'smooth',block:'center'})};
+  const adults=qty.adult,kids=qty.kid;
+  const name=$('name').value.trim(),email=$('email').value.trim(),phone=$('phone').value.trim();
+  if(adults+kids<1)return bad(t.e_items);
+  if(name.length<2)return bad(t.e_name);
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email))return bad(t.e_email);
+  if(phone.replace(/\D/g,'').length<10)return bad(t.e_phone);
+  const data={adults,kids,store:STORE,day:EVENT_DAY,name,email,phone,notes:$('notes').value.trim(),lang:L,website:$('website').value};
+  const btn=$('send');btn.disabled=true;btn.textContent=t.sending;
+  let num='SB-TEST';
+  try{
+    if(API_URL){const r=await fetch(API_URL,{method:'POST',body:JSON.stringify(data),headers:{'Content-Type':'text/plain;charset=utf-8'}});
+      const j=await r.json();if(!j.ok)throw new Error(j.error||'error');num=j.order;}
+    else{await new Promise(r=>setTimeout(r,700))}
+  }catch(x){btn.disabled=false;render();return bad(t.e_net)}
+  $('form').style.display='none';$('bar').style.display='none';
+  document.querySelectorAll('.wrap > h1,.wrap > .lead,.facts').forEach(e=>e.style.display='none');
+  $('num').textContent=num;$('doneMsg').textContent=t.doneMsg(name.split(' ')[0],adults,kids);
+  $('done').style.display='block';window.scrollTo({top:0,behavior:'smooth'});
+}
+$('send').addEventListener('click',send);
+if(Date.now()>new Date(DEADLINE).getTime()){$('form').style.display='none';$('bar').style.display='none';$('closed').style.display='block'}
+render();
+</script>
+</body>
+</html>
