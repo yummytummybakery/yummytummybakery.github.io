@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Specials · Yummy Tummy Bakery</title>
+<meta name="description" content="Seasonal specials from Yummy Tummy Bakery in Humble and New Caney, TX.">
+<meta property="og:title" content="Seasonal Specials · Yummy Tummy Bakery">
+<meta property="og:description" content="Pre-order our seasonal specials. Humble · New Caney, TX.">
+<meta name="theme-color" content="#F1DBDD">
+<link rel="icon" href="../img/icon-192.png">
+<style>
+@font-face{font-family:IS;src:url(thanksgiving/fonts/InstrumentSerif-Italic.ttf);font-display:swap}
+@font-face{font-family:ISR;src:url(thanksgiving/fonts/InstrumentSerif-Regular.ttf);font-display:swap}
+:root{--bg:#F1DBDD;--bg2:#F7E8E9;--card:#FFFFFF;--ink:#1A1A1A;--mute:#6B6B6B;--line:#E4BEC1;--rose:#C26878}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html{background:var(--bg)}
+body{font-family:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink);background:radial-gradient(130% 60% at 50% 0%,var(--bg2) 0%,var(--bg) 60%);min-height:100vh}
+.wrap{max-width:560px;margin:0 auto;padding:22px 18px 40px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.logo{width:150px}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--card)}
+.lang button{border:0;background:none;font:600 12px/1 inherit;font-family:inherit;letter-spacing:.12em;color:var(--mute);padding:8px 12px;cursor:pointer}
+.lang button.on{background:var(--ink);color:#fff}
+h1{font-family:IS;font-weight:400;color:var(--rose);-webkit-text-stroke:1.6px var(--rose);font-size:62px;line-height:.9;text-align:center;margin:34px 0 12px}
+.lead{text-align:center;font-size:15px;line-height:1.55;max-width:400px;margin:0 auto}
+.dots{display:flex;justify-content:center;gap:9px;margin:20px 0 26px}.dots i{width:7px;height:7px;border-radius:50%;background:var(--rose)}
+.card{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px 22px 20px;margin-bottom:16px;position:relative;box-shadow:0 8px 22px rgba(0,0,0,.05)}
+.card .badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:6px 11px;border-radius:999px;background:var(--bg);margin-bottom:12px}
+.card .badge.open{background:var(--ink);color:#fff}
+.card h2{font-family:IS;font-weight:400;font-size:36px;line-height:1;color:var(--rose);-webkit-text-stroke:.8px var(--rose)}
+.card p{font-size:14.5px;line-height:1.5;margin-top:8px;color:var(--mute)}
+.card .go{margin-top:14px;font-weight:700;font-size:13px;letter-spacing:.18em;text-transform:uppercase}
+.card.soon{opacity:.85;cursor:default}
+footer{text-align:center;font-size:12px;color:var(--mute);margin-top:30px;letter-spacing:.06em}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <img class="logo" src="../img/logo.png" alt="Yummy Tummy Bakery">
+    <div class="lang"><button data-l="en" class="on">EN</button><button data-l="es">ES</button></div>
+  </div>
+  <h1 data-t="title"></h1>
+  <p class="lead" data-t="lead"></p>
+  <div class="dots"><i></i><i></i><i></i></div>
+  <div id="list"></div>
+  <footer>Yummy Tummy Bakery · Humble · New Caney</footer>
+</div>
+<script>
+/* ===== Especiales: agregar uno nuevo = agregar un objeto aquí (el primero de la lista sale arriba) ===== */
+const SPECIALS = [
+  { href:null, status:'soon',
+    en:{t:'Santa Brunch', d:'Brunch with Santa at Yummy Tummy. Details and reservations coming soon.'},
+    es:{t:'Santa Brunch', d:'Brunch con Santa en Yummy Tummy. Muy pronto los detalles y las reservaciones.'} },
+  { href:'thanksgiving/', status:'closed',
+    en:{t:'Thanksgiving Pie Collection', d:'Pre-orders are closed. Thank you for making your table extra sweet with us!'},
+    es:{t:'Thanksgiving Pie Collection', d:'Los pedidos ya cerraron. ¡Gracias por endulzar su mesa con nosotros!'} }
+];
+/* ==================================================================================================== */
+const T={
+ en:{title:'Seasonal Specials',lead:'Limited-time treats and events, baked fresh for the season.',open:'Order now',closed:'Closed',soon:'Coming soon',go:'Open →'},
+ es:{title:'Especiales de temporada',lead:'Postres y eventos por tiempo limitado, hechos frescos para la temporada.',open:'Ordene ya',closed:'Cerrado',soon:'Muy pronto',go:'Abrir →'}
+};
+let L=(()=>{try{return localStorage.getItem('ytb-lang')||((navigator.language||'').startsWith('es')?'es':'en')}catch(e){return 'en'}})();
+function render(){
+  const t=T[L];document.documentElement.lang=L;
+  document.querySelectorAll('[data-t]').forEach(e=>e.textContent=t[e.dataset.t]);
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===L));
+  document.getElementById('list').innerHTML=SPECIALS.map(s=>{
+    const c=s[L],tag=s.href?'a':'div';
+    return `<${tag} class="card ${s.status}"${s.href?` href="${s.href}"`:''}><span class="badge ${s.status}">${t[s.status]}</span><h2>${c.t}</h2><p>${c.d}</p>${s.href?`<div class="go">${t.go}</div>`:''}</${tag}>`;
+  }).join('');
+}
+document.addEventListener('click',e=>{const b=e.target.closest('.lang button');if(!b)return;L=b.dataset.l;try{localStorage.setItem('ytb-lang',L)}catch(x){}render()});
+render();
+</script>
+</body>
+</html>
