@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Thanksgiving Pies · Yummy Tummy</title>
+<meta name="description" content="Pre-order your Thanksgiving pies from Yummy Tummy Bakery. Pick up in Humble or New Caney.">
+<meta property="og:title" content="Thanksgiving Pie Collection · Yummy Tummy Bakery">
+<meta property="og:description" content="Pre-order your favorite pies and pick them up at your closest Yummy Tummy.">
+<meta name="theme-color" content="#F1DBDD">
+<link rel="icon" href="../img/icon-192.png">
+<style>
+@font-face{font-family:IS;src:url(fonts/InstrumentSerif-Italic.ttf);font-display:swap}
+@font-face{font-family:ISR;src:url(fonts/InstrumentSerif-Regular.ttf);font-display:swap}
+:root{--bg:#F1DBDD;--bg2:#F7E8E9;--card:#FFFFFF;--rose:#1A1A1A;--ink:#1A1A1A;--mute:#6B6B6B;--line:#E4BEC1;--sel:#F8ECED}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html{background:var(--bg)}
+body{font-family:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink);background:radial-gradient(130% 60% at 50% 0%,var(--bg2) 0%,var(--bg) 60%);min-height:100vh;padding-bottom:120px}
+.wrap{max-width:560px;margin:0 auto;padding:22px 18px 0}
+.top{display:flex;justify-content:space-between;align-items:center}
+.logo{width:150px}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--card)}
+.lang button{border:0;background:none;font:600 12px/1 inherit;font-family:inherit;letter-spacing:.12em;color:var(--mute);padding:8px 12px;cursor:pointer}
+.lang button.on{background:var(--rose);color:#fff}
+h1{font-family:IS;font-weight:400;color:var(--rose);font-size:58px;line-height:.9;text-align:center;margin:30px 0 12px;-webkit-text-stroke:1.2px var(--rose);letter-spacing:-.5px}
+.lead{text-align:center;font-size:15px;line-height:1.55;max-width:400px;margin:0 auto}
+.dots{display:flex;justify-content:center;gap:9px;margin:20px 0 6px}.dots i{width:7px;height:7px;border-radius:50%;background:var(--rose)}
+.facts{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.facts span{font-size:12px;letter-spacing:.06em;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 12px}
+.step{margin-top:30px}
+.step h2{font-family:IS;font-weight:400;font-size:30px;color:var(--rose);display:flex;align-items:baseline;gap:10px;margin-bottom:12px}
+.step h2 b{font-family:-apple-system,"Helvetica Neue",Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.16em;color:#fff;background:var(--rose);border-radius:999px;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;transform:translateY(-4px)}
+.list{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.item{display:flex;align-items:center;justify-content:space-between;padding:12px 14px 12px 18px;border-top:1px solid var(--line)}
+.item:first-child{border-top:0}
+.grp{font-family:IS;font-size:24px;color:var(--rose);padding:16px 18px 8px;border-top:1px solid var(--line);background:var(--bg2)}
+.item .n{font-family:ISR;font-size:23px;line-height:1.15}
+.item .p{font-size:12.5px;color:var(--mute);margin-top:2px}
+.item.sel{background:var(--sel)}
+.stp{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.stp button{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--rose);background:#fff;color:var(--rose);font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.stp button.plus{background:var(--rose);color:#fff}
+.stp button:disabled{opacity:.3}
+.stp output{min-width:26px;text-align:center;font-weight:700;font-size:17px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{border:1.5px solid var(--line);background:var(--card);border-radius:16px;padding:16px 12px;text-align:center;cursor:pointer;font-family:inherit;color:var(--ink)}
+.opt .big{font-family:ISR;font-size:25px;display:block;line-height:1.1}
+.opt .sm{font-size:12px;color:var(--mute);letter-spacing:.06em;display:block;margin-top:4px}
+.opt.on{border-color:var(--rose);background:var(--rose);color:#fff}.opt.on .sm{color:#E4BEC1}
+.note{font-size:13px;color:var(--mute);margin-top:10px;text-align:center}
+.f{display:block;margin-bottom:12px}
+.f span{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 6px 4px;font-weight:600}
+.f input[type=date]{min-height:52px;-webkit-appearance:none;appearance:none}
+.f input,.f textarea{width:100%;border:1.5px solid var(--line);background:var(--card);border-radius:14px;padding:14px 15px;font-size:16px;font-family:inherit;color:var(--ink);outline:none}
+.f input:focus,.f textarea:focus{border-color:var(--rose)}
+.f textarea{min-height:70px;resize:vertical}
+.hp{position:absolute;left:-9999px}
+.sum{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px;margin-top:26px;font-size:14.5px;line-height:1.6}
+.sum .row{display:flex;justify-content:space-between;gap:10px}
+.sum .tot{border-top:1px solid var(--line);margin-top:8px;padding-top:8px;font-weight:700}
+.sum .ty{margin-top:14px;text-align:center;font-family:IS;font-size:22px;line-height:1.1}
+.sum .disc{margin-top:12px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--bg2);text-align:center;font-weight:700;font-size:14px}
+.opt.fixed{cursor:default;width:100%}
+.sum .pay{margin-top:10px;font-size:13px;color:var(--mute)}
+.bar{position:fixed;left:0;right:0;bottom:0;padding:12px 18px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(to top,var(--bg) 70%,rgba(241,219,221,0));z-index:5}
+.bar button{display:block;width:100%;max-width:524px;margin:0 auto;border:0;border-radius:999px;background:var(--rose);color:#fff;font:700 15px/1 inherit;font-family:inherit;letter-spacing:.18em;text-transform:uppercase;padding:19px;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.bar button:disabled{opacity:.45;box-shadow:none}
+.err{color:#B4443F;font-size:13.5px;text-align:center;margin-top:12px;min-height:18px}
+.done{display:none;text-align:center;padding-top:30px}
+.done .num{display:inline-block;font-size:13px;letter-spacing:.2em;font-weight:700;background:var(--rose);color:#fff;border-radius:999px;padding:10px 18px;margin:18px 0}
+.done p{font-size:15.5px;line-height:1.6;max-width:420px;margin:0 auto 12px}
+.closed{display:none;text-align:center;padding:40px 0}
+footer{text-align:center;font-size:12px;color:var(--mute);margin:40px 0 0;letter-spacing:.06em}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <img class="logo" src="../img/logo.png" alt="Yummy Tummy Bakery">
+    <div class="lang"><button data-l="en" class="on">EN</button><button data-l="es">ES</button></div>
+  </div>
+
+  <h1>Thanksgiving<br>Pie Collection</h1>
+  <p class="lead" data-t="lead"></p>
+  <div class="facts"><span data-t="f1"></span></div>
+
+  <div id="closed" class="closed"><p class="lead" data-t="closed"></p></div>
+
+  <form id="form" novalidate>
+    <section class="step">
+      <h2><b>1</b><span data-t="s1"></span></h2>
+      <div class="list" id="list"></div>
+    </section>
+
+    <section class="step">
+      <h2><b>2</b><span data-t="s2"></span></h2>
+      <div class="opts" id="stores"></div>
+    </section>
+
+    <section class="step">
+      <h2><b>3</b><span data-t="s3"></span></h2>
+      <div class="opt on fixed"><span class="big" data-t="dlv"></span><span class="sm">Yummy Tummy</span></div>
+      <p class="note" data-t="hours"></p>
+    </section>
+
+    <section class="step">
+      <h2><b>4</b><span data-t="s4"></span></h2>
+      <label class="f"><span data-t="name"></span><input id="name" autocomplete="name" required></label>
+      <label class="f"><span data-t="email"></span><input id="email" type="email" autocomplete="email" inputmode="email" required></label>
+      <label class="f"><span data-t="phone"></span><input id="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
+      <label class="f"><span data-t="notes"></span><textarea id="notes"></textarea></label>
+      <input class="hp" id="website" tabindex="-1" autocomplete="off">
+    </section>
+
+    <div class="sum" id="sum"></div>
+    <p class="err" id="err"></p>
+  </form>
+
+  <div class="done" id="done">
+    <h1 data-t="thanks"></h1>
+    <div class="num" id="num"></div>
+    <p id="doneMsg"></p>
+    <p data-t="doneMail"></p>
+    <p data-t="ty" style="font-family:IS;font-size:28px;margin-top:22px"></p>
+  </div>
+
+  <footer>Yummy Tummy Bakery · Humble · New Caney</footer>
+</div>
+
+<div class="bar" id="bar"><button id="send" type="button"></button></div>
+
+<script>
+/* ===== Configuración ===== */
+const API_URL = 'https://script.google.com/macros/s/AKfycbyiKV8kdElV9HEFvj5qwZS8m3shQTv68lESCi7oWrnEptnSSw-X7vlH2OiUAPxIqb0K/exec';                       // URL del Apps Script (Implementar → App web). Vacío = modo prueba.
+const SHOW_PRICES = true;                 // false = esconder precios
+const ORDER_DEADLINE = '2026-11-23T23:59:59-06:00';
+const PICKUP_LAST = '2026-11-25';         // día de entrega (único)
+const STORES = [
+  {id:'Humble', en:'Humble', es:'Humble'},
+  {id:'New Caney', en:'New Caney', es:'New Caney'}
+];
+const PIES = [
+  {id:'pumpkin',    en:'Pumpkin',               es:'Pumpkin (calabaza)',             price:25.00},
+  {id:'pecan',      en:'Pecan',                 es:'Pecan (nuez)',                   price:34.00},
+  {id:'chocpecan',  en:'Chocolate Chunk Pecan', es:'Chocolate Chunk Pecan',          price:38.00},
+  {id:'apple',      en:'Apple Streusel',        es:'Apple Streusel (manzana)',       price:25.00},
+  {id:'tradapple',  en:'Traditional Apple',     es:'Apple tradicional (manzana)',    price:28.00},
+  {id:'cherry',     en:'Cherry Streusel',       es:'Cherry Streusel (cereza)',       price:25.00},
+  {id:'buttermilk', en:'Buttermilk',            es:'Buttermilk',                     price:25.00},
+  {id:'banana',     en:'Banana Cream',          es:'Banana Cream',                   price:25.00},
+  {id:'coconut',    en:'Coconut Cream',         es:'Coconut Cream (coco)',           price:25.00},
+  {id:'strawberry', en:'Strawberry Cream',      es:'Strawberry Cream (fresa)',       price:25.00},
+  {id:'chocolate',  en:'Chocolate Cream',       es:'Chocolate Cream',                price:25.00},
+  {id:'lemon',      en:'Lemon Cream',           es:'Lemon Cream (limón)',            price:25.00},
+  {id:'oreo',       en:'Oreo Cream',            es:'Oreo Cream',                     price:25.00},
+  {id:'proll',      key:'1/4 Sheet Pumpkin Roll',  en:'¼ Sheet Pumpkin Roll',  es:'Pumpkin Roll ¼ de plancha',  price:45.00, extra:true},
+  {id:'bpudding',   key:'1/4 Sheet Bread Pudding', en:'¼ Sheet Bread Pudding', es:'Bread Pudding ¼ de plancha', price:75.00, extra:true}
+];
+/* ========================== */
+
+const T={
+ en:{lead:'Baked fresh for the season and only for a limited time. Choose your pies and your pickup store.',
+  f1:'Delivery day: November 25',dlv:'Wednesday, November 25',disc:'Delivery day: Wednesday, November 25.',
+  s1:'Choose your order',s2:'Pickup store',s3:'Delivery day',s4:'Your information',
+  hours:'All orders are delivered on Wednesday, November 25. Our team will confirm the time with you.',name:'Full name',email:'Email',phone:'Phone',notes:'Notes (optional)',
+  ask:'Price at the store',summary:'Your order',none:'Add at least one item to start.',est:'Estimated total',
+  pay:'Once your order is placed, our team will contact you to complete your payment online and schedule your pickup.',ty:'Thank you for choosing us!',
+  send:'Place my order',sending:'Sending…',
+  e_items:'Add at least one item.',e_store:'Choose a pickup store.',e_day:'',e_name:'Write your name.',e_email:'Check your email address.',e_phone:'Check your phone number.',e_net:'We could not send your order. Please try again, or call your store.',
+  thanks:'Thank you!',doneMail:'We sent a confirmation to your email.',ty:'Thank you for choosing us!',
+  doneMsg:(n,s,d)=>`${n}, we received your order for Yummy Tummy ${s} (delivery day: ${d}). Our team will contact you to complete your payment online and schedule your pickup.`,
+  closed:'Thanksgiving pre-orders are closed. Visit us at the store, we may still have pies in the display case!',
+  pie:'item',pies:'items',extra:'Also this season'},
+ es:{lead:'Hechos frescos para la temporada y solo por tiempo limitado. Escoja sus pies y su sucursal de retiro.',
+  f1:'Día de entrega: 25 de noviembre',dlv:'Miércoles 25 de noviembre',disc:'Día de la entrega: miércoles 25 de noviembre.',
+  s1:'Escoja su pedido',s2:'Sucursal de retiro',s3:'Día de entrega',s4:'Sus datos',
+  hours:'Todos los pedidos se entregan el miércoles 25 de noviembre. Nuestro equipo le confirmará la hora.',name:'Nombre completo',email:'Email',phone:'Teléfono',notes:'Notas (opcional)',
+  ask:'Precio en tienda',summary:'Su pedido',none:'Agregue al menos un producto para empezar.',est:'Total estimado',
+  pay:'Una vez realizado su pedido, nuestro equipo se contactará con usted para realizar su pago en línea y retirar su orden una vez se programe con nuestro team.',ty:'¡Gracias por preferirnos!',
+  send:'Hacer mi pedido',sending:'Enviando…',
+  e_items:'Agregue al menos un producto.',e_store:'Escoja la sucursal.',e_day:'',e_name:'Escriba su nombre.',e_email:'Revise su email.',e_phone:'Revise su teléfono.',e_net:'No pudimos enviar su pedido. Intente de nuevo o llame a su sucursal.',
+  thanks:'¡Gracias!',doneMail:'Le enviamos una confirmación a su email.',ty:'¡Gracias por preferirnos!',
+  doneMsg:(n,s,d)=>`${n}, recibimos su pedido para Yummy Tummy ${s} (día de entrega: ${d}). Nuestro equipo se contactará con usted para realizar su pago en línea y programar el retiro.`,
+  closed:'Los pedidos de Thanksgiving ya cerraron. ¡Visítenos en la tienda, puede que aún tengamos pies en vitrina!',
+  pie:'producto',pies:'productos',extra:'También de temporada'}
+};
+let L=(()=>{try{return localStorage.getItem('ytb-lang')||((navigator.language||'').startsWith('es')?'es':'en')}catch(e){return 'en'}})();
+const qty={};PIES.forEach(p=>qty[p.id]=0);
+let store='',day='';
+const $=id=>document.getElementById(id);
+const money=n=>'$'+n.toFixed(2);
+const dayLabel=(d,l)=>new Date(d+'T12:00:00-06:00').toLocaleDateString(l==='es'?'es-US':'en-US',{weekday:'long',month:'long',day:'numeric',timeZone:'America/Chicago'});
+const dayShort=(d,l)=>{const x=new Date(d+'T12:00:00-06:00');return{a:x.toLocaleDateString(l==='es'?'es-US':'en-US',{weekday:'long',timeZone:'America/Chicago'}),b:x.toLocaleDateString(l==='es'?'es-US':'en-US',{month:'short',day:'numeric',timeZone:'America/Chicago'})}};
+
+function render(){
+  const t=T[L];document.documentElement.lang=L;
+  document.querySelectorAll('[data-t]').forEach(e=>{const v=t[e.dataset.t];if(typeof v==='string')e.textContent=v});
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===L));
+  $('list').innerHTML=PIES.map(p=>`${p.extra&&p===PIES.find(x=>x.extra)?`<div class="grp">${t.extra}</div>`:''}<div class="item${qty[p.id]?' sel':''}"><div><div class="n">${p[L]}</div>${SHOW_PRICES?`<div class="p">${p.price?money(p.price):t.ask}</div>`:''}</div>
+   <div class="stp"><button type="button" data-m="${p.id}" aria-label="-" ${qty[p.id]?'':'disabled'}>−</button><output>${qty[p.id]}</output><button type="button" class="plus" data-p="${p.id}" aria-label="+">+</button></div></div>`).join('');
+  $('stores').innerHTML=STORES.map(s=>`<button type="button" class="opt${store===s.id?' on':''}" data-s="${s.id}"><span class="big">${s[L]}</span><span class="sm">Yummy Tummy</span></button>`).join('');
+  const sel=PIES.filter(p=>qty[p.id]);
+  let h=`<div style="font-weight:700;margin-bottom:6px">${t.summary}</div>`;
+  if(!sel.length)h+=`<div style="color:var(--mute)">${t.none}</div>`;
+  else{
+    sel.forEach(p=>h+=`<div class="row"><span>${qty[p.id]} × ${p[L]}</span>${SHOW_PRICES&&p.price?`<span>${money(p.price*qty[p.id])}</span>`:''}</div>`);
+    if(SHOW_PRICES){const tot=sel.reduce((a,p)=>a+(p.price||0)*qty[p.id],0);const partial=sel.some(p=>!p.price);
+      h+=`<div class="row tot"><span>${t.est}</span><span>${money(tot)}${partial?' +':''}</span></div>`}
+  }
+  h+=`<div class="pay">${t.pay}</div><div class="disc">${t.disc}</div><div class="ty">${t.ty}</div>`;
+  $('sum').innerHTML=h;
+  const n=sel.reduce((a,p)=>a+qty[p.id],0);
+  $('send').textContent=n?`${t.send} · ${n} ${n>1?t.pies:t.pie}`:t.send;
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.l){L=b.dataset.l;try{localStorage.setItem('ytb-lang',L)}catch(x){}render();return}
+  if(b.dataset.p){qty[b.dataset.p]=Math.min(20,qty[b.dataset.p]+1);render()}
+  if(b.dataset.m){qty[b.dataset.m]=Math.max(0,qty[b.dataset.m]-1);render()}
+  if(b.dataset.s){store=b.dataset.s;render()}
+});
+
+async function send(){
+  const t=T[L],err=$('err');err.textContent='';
+  const items=PIES.filter(p=>qty[p.id]).map(p=>({name:p.key||p.en,qty:qty[p.id],price:p.price}));
+  const name=$('name').value.trim(),email=$('email').value.trim(),phone=$('phone').value.trim();
+  const bad=m=>{err.textContent=m;err.scrollIntoView({behavior:'smooth',block:'center'})};
+  if(!items.length)return bad(t.e_items);
+  if(!store)return bad(t.e_store);
+  day=PICKUP_LAST;
+  if(name.length<2)return bad(t.e_name);
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email))return bad(t.e_email);
+  if(phone.replace(/\D/g,'').length<10)return bad(t.e_phone);
+  const data={items,store,day,dayLabel:dayLabel(day,'en'),name,email,phone,notes:$('notes').value.trim(),lang:L,website:$('website').value};
+  const btn=$('send');btn.disabled=true;btn.textContent=t.sending;
+  let num='TEST-0001';
+  try{
+    if(API_URL){
+      const r=await fetch(API_URL,{method:'POST',body:JSON.stringify(data),headers:{'Content-Type':'text/plain;charset=utf-8'}});
+      const j=await r.json();if(!j.ok)throw new Error(j.error||'error');num=j.order;
+    }else{await new Promise(r=>setTimeout(r,700))}
+  }catch(x){btn.disabled=false;render();return bad(t.e_net)}
+  $('form').style.display='none';$('bar').style.display='none';
+  document.querySelectorAll('.wrap > h1,.wrap > .lead,.facts').forEach(e=>e.style.display='none');
+  $('num').textContent=num;
+  $('doneMsg').textContent=t.doneMsg(name.split(' ')[0],STORES.find(s=>s.id===store)[L],dayLabel(day,L));
+  $('done').style.display='block';window.scrollTo({top:0,behavior:'smooth'});
+}
+$('send').addEventListener('click',send);
+if(Date.now()>new Date(ORDER_DEADLINE).getTime()){$('form').style.display='none';$('bar').style.display='none';$('closed').style.display='block'}
+render();
+</script>
+</body>
+</html>
