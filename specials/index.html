@@ -59,8 +59,8 @@ const SPECIALS = [
 ];
 /* ==================================================================================================== */
 const T={
- en:{title:'Seasonal Specials',lead:'Limited-time treats and events, baked fresh for the season.',open:'Order now',closed:'Closed',soon:'Coming soon',go:'Open →'},
- es:{title:'Especiales de temporada',lead:'Postres y eventos por tiempo limitado, hechos frescos para la temporada.',open:'Ordene ya',closed:'Cerrado',soon:'Muy pronto',go:'Abrir →'}
+ en:{title:'Seasonal Specials',lead:'Limited-time treats and events, baked fresh for the season.',open:'Available',closed:'Closed',soon:'Coming soon',go:'Open →'},
+ es:{title:'Especiales de temporada',lead:'Postres y eventos por tiempo limitado, hechos frescos para la temporada.',open:'Disponible',closed:'Cerrado',soon:'Muy pronto',go:'Abrir →'}
 };
 let L=(()=>{try{return localStorage.getItem('ytb-lang')||((navigator.language||'').startsWith('es')?'es':'en')}catch(e){return 'en'}})();
 function render(){
