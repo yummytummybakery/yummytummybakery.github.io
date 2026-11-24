@@ -140,6 +140,7 @@ main{padding-block:22px 40px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}.pend .steam path{animation:none}}
 .card .pr{font-size:15px;font-weight:700;color:var(--ink);margin-top:2px}
+.cta-box img{width:190px;height:190px;display:block;margin:0 auto 12px;border-radius:12px}.cta-box p{margin:0 0 16px;color:var(--ink)}.cta-box .cta{display:inline-block;background:#1A1A1A;color:#fff;text-decoration:none;font-weight:700;padding:13px 28px;border-radius:999px}
 .season-box{background:var(--paper);border-radius:18px;padding:28px 20px;text-align:center;border:1.5px dashed var(--line);color:var(--muted);line-height:1.5;margin-top:14px}
 .group .dl{display:inline-block;justify-self:start;margin-top:6px;background:var(--blush);color:var(--wine);font-weight:700;font-size:13px;border-radius:999px;padding:6px 12px}
 </style>
@@ -216,7 +217,8 @@ const T = {
               bk:{e:'Hasta las 3 PM',h:'Breakfast',p:'Para empezar el día.'},
               sw:{e:'Hasta las 3 PM',h:'Sandwiches',p:'Con ensalada o chips, a su elección.'},
               chq:{e:'Hasta las 3 PM',h:'Chilaquiles',p:'Con salsa verde, roja o las dos.'}},
-      seasons:{thanksgiving:{e:'Thanksgiving',h:'Pies de Thanksgiving',p:'Haga su pedido de pies para Thanksgiving con nuestro equipo.',dl:'Pedidos hasta el 22 de noviembre',empty:'La lista de pies llega muy pronto. Mientras tanto, pregunte a nuestro equipo y le tomamos el pedido.'},
+      seasons:{santa:{e:'Domingo 6 de diciembre · Humble',h:'Santa Brunch',p:'Brunch y fotos con Santa en Yummy Tummy Humble. Adulto $40 · Niño $30.',dl:'Reserve su mesa',cta:'Reservar',scan:'Escanee con su teléfono para reservar'},
+               thanksgiving:{e:'Thanksgiving',h:'Pies de Thanksgiving',p:'Haga su pedido de pies para Thanksgiving con nuestro equipo.',dl:'Pedidos hasta el 22 de noviembre',empty:'La lista de pies llega muy pronto. Mientras tanto, pregunte a nuestro equipo y le tomamos el pedido.'},
                christmas:{e:'Navidad',h:'Especiales de Navidad',p:'Lo que preparamos para las fiestas.',empty:'Muy pronto anunciamos los especiales de Navidad.'},
                summer:{e:'Verano',h:'Especiales de verano',p:'Lo fresco de la temporada.',empty:'Muy pronto.'}},
       noSeason:'Muy pronto anunciamos el próximo especial de temporada.',
@@ -242,7 +244,8 @@ const T = {
               bk:{e:'Until 3 PM',h:'Breakfast',p:'To start your day.'},
               sw:{e:'Until 3 PM',h:'Sandwiches',p:'Served with salad or chips, your choice.'},
               chq:{e:'Until 3 PM',h:'Chilaquiles',p:'With green or red sauce, or both.'}},
-      seasons:{thanksgiving:{e:'Thanksgiving',h:'Thanksgiving pies',p:'Order your Thanksgiving pies with our team.',dl:'Orders open until November 22',empty:'The pie list is coming soon. In the meantime, ask our team and we’ll take your order.'},
+      seasons:{santa:{e:'Sunday, December 6 · Humble',h:'Santa Brunch',p:'Brunch and photos with Santa at Yummy Tummy Humble. Adult $40 · Kid $30.',dl:'Reserve your table',cta:'Reserve',scan:'Scan with your phone to reserve'},
+               thanksgiving:{e:'Thanksgiving',h:'Thanksgiving pies',p:'Order your Thanksgiving pies with our team.',dl:'Orders open until November 22',empty:'The pie list is coming soon. In the meantime, ask our team and we’ll take your order.'},
                christmas:{e:'Christmas',h:'Christmas specials',p:'What we bake for the holidays.',empty:'Our Christmas specials are coming soon.'},
                summer:{e:'Summer',h:'Summer specials',p:'Fresh for the season.',empty:'Coming soon.'}},
       noSeason:'Our next seasonal special is coming soon.',
@@ -422,7 +425,8 @@ P.push(
 // ---- SPECIALS por temporada. Para cambiar de temporada: poner las fechas en SEASONS y agregar los productos con E(...).
 // Una temporada se muestra desde 'from' hasta 'until' (incluidos). Fotos: img/{id}-out.webp + agregar el id a PHOTOS con 1.
 const SEASONS=[
- {k:'thanksgiving',from:'2026-11-01',until:'2026-11-26'},
+ {k:'santa',from:'2026-11-24',until:'2026-12-06'},
+ {k:'thanksgiving',from:'2026-11-01',until:'2026-11-23'},
  {k:'christmas',from:'2026-11-27',until:'2026-12-31'},
 ];
 // E(code,id,name,temporada,precio,es,en,extra)
@@ -439,7 +443,7 @@ const PHOTOS={choc_strawberries:1,rect_r01:2,rect_r02:2,rect_r03:2,rect_r04:2,re
 P.forEach(p => { if (SEASONAL[p.id]) p.seasonal = true; if (PHOTOS[p.id]){ p.photo = true; p.views = PHOTOS[p.id]; } });
 
 
-const BUILD = '202611111907';
+const BUILD = '202611241310';
 let lang = 'es', cat = 'cupcakes', tag = null, current = -1, view = 'out', list = [];
 try { const s = JSON.parse(localStorage.getItem('ytb-cat') || '{}'); if (s.lang) lang = s.lang; } catch(e) {}
 const $ = id => document.getElementById(id);
@@ -505,7 +509,7 @@ function renderSpecials(){
   $('content').innerHTML = act.map(s => {
     const G = t.seasons[s.k], items = list.map((p,i)=>[p,i]).filter(([p]) => p.season===s.k);
     return `<section class="group"><header><span class="eb">${G.e}</span><h2>${G.h}</h2><p>${G.p}</p>${G.dl ? `<span class="dl">${G.dl}</span>` : ''}</header>` +
-      (items.length ? `<div class="grid">${items.map(([p,i]) => cardHTML(p,i)).join('')}</div>` : `<div class="season-box">${G.empty}</div>`) + `</section>`;
+      (G.cta ? `<div class="season-box cta-box"><img src="img/qr-santa-brunch.png?v=${BUILD}" alt="QR"><p>${G.scan}</p><a class="cta" href="specials/santa-brunch/">${G.cta} →</a></div>` : items.length ? `<div class="grid">${items.map(([p,i]) => cardHTML(p,i)).join('')}</div>` : `<div class="season-box">${G.empty}</div>`) + `</section>`;
   }).join('');
 }
 function badge(p){ const t=T[lang]; return p.seasonal ? `<span class="season low">${t.season}</span>` : (p.group==='order'||p.group==='sheet') ? `<span class="season">${t.order}</span>` : ''; }
